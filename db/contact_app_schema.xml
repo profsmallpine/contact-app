@@ -101,7 +101,7 @@
 																	<part>id</part>
 																</key>
 															</table>
-															<table x="209" y="341" name="phone_numbers_contacts">
+															<table x="209" y="341" name="phone_number_contacts">
 																<row name="id" null="1" autoincrement="1">
 																	<datatype>INTEGER</datatype>
 																	<default>NULL</default></row>
@@ -117,7 +117,7 @@
 																		<part>id</part>
 																	</key>
 																</table>
-																<table x="479" y="413" name="companies_contacts">
+																<table x="479" y="413" name="company_contacts">
 																	<row name="id" null="1" autoincrement="1">
 																		<datatype>INTEGER</datatype>
 																		<default>NULL</default></row>
@@ -133,7 +133,7 @@
 																			<part>id</part>
 																		</key>
 																	</table>
-																	<table x="707" y="336" name="addresses_contacts">
+																	<table x="707" y="336" name="address_contacts">
 																		<row name="id" null="1" autoincrement="1">
 																			<datatype>INTEGER</datatype>
 																			<default>NULL</default></row>

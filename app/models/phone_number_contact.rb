@@ -1,0 +1,4 @@
+class PhoneNumberContact < ActiveRecord::Base
+  belongs_to :contact
+  belongs_to :phone_number
+end
