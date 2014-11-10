@@ -9,4 +9,6 @@ class Contact < ActiveRecord::Base
   has_many :addresses, through: :address_contacts
 
   has_many :relationships, foreign_key: :contact1
+
+  validates :first_name, :last_name, presence: true
 end
