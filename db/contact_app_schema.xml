@@ -70,6 +70,10 @@
 									<row name="position" null="1" autoincrement="0">
 										<datatype>CHAR</datatype>
 										<default>NULL</default></row>
+										<row name="sister_company_id" null="1" autoincrement="0">
+											<datatype>INTEGER</datatype>
+											<default>NULL</default><relation table="companies" row="id" />
+										</row>
 										<key type="PRIMARY" name="">
 											<part>id</part>
 										</key>
