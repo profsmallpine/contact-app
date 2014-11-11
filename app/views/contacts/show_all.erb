@@ -1,0 +1,19 @@
+<div class="jumbotron">
+	<h1 class="text-center">Contacts</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<% if !@contacts.nil? %>
+					<% unless @name.nil? %>
+						<p><%= @name %> has been deleted.</p>
+					<% end %>
+					<% @contacts.each do |contact| %>
+						<div class="alert alert-info" role="alert">
+							<h3 class="strong-body"><a href="/contacts/<%= contact.id %>/edit"><%= contact.first_name %> <%= contact.last_name %></a> <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= contact.id %>/destroy">Delete</a></span></h3>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

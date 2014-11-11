@@ -1,0 +1,12 @@
+<h3>New Relationship for <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+<form action="/contacts/<%= @contact.id %>/relationships/new" method="post">
+	<select name="relationship[contact2]">
+	<% @contacts.each do |contact| %>
+		<option value="<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %></option>
+	<% end %>
+	</select><br>
+	<input required type="text" placeholder="Relationship type" name="relationship[relationship_type]"><br>
+	<input type="hidden" name="relationship[contact1]" value="<%= @contact.id %>">
+	<input type="submit" value="Create">
+</form>

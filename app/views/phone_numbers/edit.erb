@@ -1,0 +1,15 @@
+<h3>Edit Phone Number for <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+<% unless @errors.nil? %>
+	<% @errors[:number].each do |error| %>
+	<p><%= error %></p>
+	<% end %>
+<% end %>
+
+<form action="/contacts/<%= @contact.id %>/phone_numbers/<%= @phone_number.id %>/edit" method="post">
+	<input required type="text" placeholder="Number" name="phone_number[number]" value="<%= @phone_number.number %>"><br>
+	<select name="phone_number[number_type]">
+		<%= erb :'partials/_number_types_edit' %>
+	</select><br>
+	<input type="submit" value="Update">
+</form>

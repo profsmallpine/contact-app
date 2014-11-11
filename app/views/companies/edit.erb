@@ -1,0 +1,13 @@
+<h3>Edit <%= @company.name %> for <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+<form action="/contacts/<%= @contact.id %>/companies/<%= @company.id %>/edit" method="post">
+	<input required type="text" placeholder="Company name" name="company[name]" value="<%= @company.name %>"><br>
+	<input type="text" placeholder="Job title" name="company[position]" value="<%= @company.position %>"><br>
+	Parent company: <select name="company[sister_company_id]">
+	<option value="">None</option>
+	<% @companies.each do |company| %>
+	<option <%= "selected" if @company.sister_company_id == company.id %> value="<%= company.id %>"><%= company.name %></option>
+	<% end %>
+	</select><br>
+	<input type="submit" value="Update">
+</form>

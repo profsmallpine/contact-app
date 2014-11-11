@@ -11,4 +11,13 @@ class Contact < ActiveRecord::Base
   has_many :relationships, foreign_key: :contact1
 
   validates :first_name, :last_name, presence: true
+
+  def self.search(search_input)
+  	@contacts = Contact.all
+  	@contacts.find_all { |contact| /#{search_input.downcase}/.match(contact.whole_name.downcase).class == MatchData }
+  end
+
+  def whole_name
+  	"#{self.first_name} #{self.last_name}"
+  end
 end

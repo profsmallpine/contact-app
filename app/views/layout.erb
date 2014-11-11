@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
+  <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -10,27 +10,36 @@
   <!--
     application.css is where you put your styles
   -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/application.css">
-  <!-- Load Vollkorn font -->
-  <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
+<header>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header navbar-">
+        <a class="navbar-brand home-button" href="/">
+          Home
+        </a>
+        <a class="navbar-brand home-button" href="/contacts">
+          Contacts
+        </a>
+      </div>
+        <form class="navbar-form navbar-right" action="/contacts/search/for" method="get">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search contacts" name="search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+  </nav>
+</header>
 <body>
-<div id="content">
-  <header>
-    <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
-    <div id="login-toolbar">
-      <% if current_user %>
-        <a href="/logout">Logout</a>
-      <% else %>
-        <a href="/login">Login</a>
-      <% end %>
-  </header>
+  <h1 class="text-center">an app for <a href="http://newbos.com/"><img alt="newbos-logo" src="/img/newbos.jpg"></a></h1>
   <%= yield %>
-</div>
 </body>
 </html>

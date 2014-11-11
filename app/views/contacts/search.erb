@@ -1,0 +1,10 @@
+<h1>Contact App 2.0 search</h1>
+<h6>You searched for <%= @search %></h6>
+<h3>Results</h3>
+<% if @results[0].nil? %>
+	<h4>Nothing found</h4>
+<% else %>
+	<% @results.each do |contact| %>
+		<h4><a href="/contacts/<%= contact.id %>/edit"><%= contact.first_name %> <%= contact.last_name %></a></h4>
+	<% end %>
+<% end %>

@@ -1,0 +1,12 @@
+<h3>Edit Relationship for <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+<form action="/contacts/<%= @contact.id %>/relationships/<%= @relationship.id %>/edit" method="post">
+	<select name="relationship[contact2]">
+	<% @contacts.each do |contact| %>
+		<option <%= "selected" if @relationship.contact2 == contact.id %> value="<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %></option>
+	<% end %>
+	</select><br>
+	<input required type="text" placeholder="Relationship type" name="relationship[relationship_type]" value="<%= @relationship.relationship_type %>"><br>
+	<input type="hidden" name="relationship[contact1]" value="<%= @contact.id %>">
+	<input type="submit" value="Update">
+</form>

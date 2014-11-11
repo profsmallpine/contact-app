@@ -1,0 +1,12 @@
+<h3>New Address for <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+<form action="/contacts/<%= @contact.id %>/addresses/new" method="post">
+	<input required type="text" placeholder="Street" name="address[street]"><br>
+	<input required type="text" placeholder="City" name="address[city]"><br>
+	<select required name="address[state]">
+		<%= erb :'partials/_states_new' %>
+	</select><br>
+	<input required type="text" placeholder="Zip code" name="address[zip_code]" pattern="[0-9]{5}" size="5"><br>
+	<input required type="text" placeholder="Address type" name="address[address_type]"><br>
+	<input type="submit" value="Create">
+</form>

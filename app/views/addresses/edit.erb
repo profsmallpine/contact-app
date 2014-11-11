@@ -1,0 +1,12 @@
+<h3>Edit Address for <%= @contact.first_name %> <%= @contact.last_name %></h3>
+
+<form action="/contacts/<%= @contact.id %>/addresses/<%= @address.id %>/edit" method="post">
+	<input required type="text" placeholder="Street" name="address[street]" value="<%= @address.street %>"><br>
+	<input required type="text" placeholder="City" name="address[city]" value="<%= @address.city %>"><br>
+	<select name="address[state]">
+		<%= erb :'partials/_states_edit' %>
+	</select><br>
+	<input required type="text" placeholder="Zip code" name="address[zip_code]" pattern="[0-9]{5}" size="5" value="<%= @address.zip_code %>"><br>
+	<input required type="text" placeholder="Address type" name="address[address_type]" value="<%= @address.address_type %>"><br>
+	<input type="submit" value="Update">
+</form>

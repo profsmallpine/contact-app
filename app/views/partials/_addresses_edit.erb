@@ -1,0 +1,6 @@
+<div class="alert alert-info" role="alert">
+	<h3 class="strong-body">Addresses <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= @contact.id %>/addresses/new">Add</a></span></h3>
+	<% @contact.addresses.each do |address| %>
+		<p><%= address.address_type %>: <%= address.street %>, <%= address.city %>  <%= address.state %> - <a href="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/edit">Edit</a> | <a href="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/destroy">Delete</a></p>
+	<% end %>
+</div>

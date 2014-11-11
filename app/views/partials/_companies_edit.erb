@@ -1,0 +1,10 @@
+<div class="alert alert-info" role="alert">
+	<h3 class="strong-body">Companies <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= @contact.id %>/companies/new">Add</a></span></h3>
+	<% @contact.companies.each do |company| %>
+		<h3><%= company.name %> - <a href="/contacts/<%= @contact.id %>/companies/<%= company.id %>/edit">Edit</a> | <a href="/contacts/<%= @contact.id %>/companies/<%= company.id %>/destroy">Delete</a></h3>
+		<% unless company.sister_company_id.nil? %>
+			<p>Parent company: <%= Company.find(company.sister_company_id).name %></p>
+		<% end %>
+		<p>Position: <%= company.position %></p><br>
+	<% end %>
+</div>

@@ -1,0 +1,7 @@
+<div class="alert alert-info" role="alert">
+	<h3 class="strong-body">Relationships <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= @contact.id %>/relationships/new">Add</a></span></h3>
+	<% @contact.relationships.each do |relationship| %>
+		<% contact = Contact.find(relationship.contact2) %>
+		<p> <%= contact.first_name %> <%= contact.last_name %> (<%= relationship.relationship_type %>) - <a href="/contacts/<%= @contact.id %>/relationships/<%= relationship.id %>/edit">Edit</a> | <a href="/contacts/<%= @contact.id %>/relationships/<%= relationship.id %>/destroy">Delete</a></p>
+	<% end %>
+</div>
