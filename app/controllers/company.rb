@@ -13,7 +13,7 @@ get '/contacts/:contact_id/companies/:id/edit' do
 	erb :'companies/edit'
 end
 
-get '/contacts/:contact_id/companies/:id/destroy' do
+delete '/contacts/:contact_id/companies/:id/destroy' do
 	Company.find_by_id(params[:id]).destroy!
 
 	redirect "contacts/#{params[:contact_id]}/edit"

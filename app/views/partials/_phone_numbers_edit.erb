@@ -1,6 +1,10 @@
 <div class="alert alert-info" role="alert">
 	<h3 class="strong-body">Phone Numbers <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= @contact.id %>/phone_numbers/new">Add</a></span></h3>
 	<% @contact.phone_numbers.each do |phone_number| %>
-		<p><%= phone_number.number_type %>: <%= phone_number.number %> - <a href="/contacts/<%= @contact.id %>/phone_numbers/<%= phone_number.id %>/edit">Edit</a> | <a href="/contacts/<%= @contact.id %>/phone_numbers/<%= phone_number.id %>/destroy">Delete</a></p>
+		<form class="inline-form" onsubmit="return confirm('Are you sure you want to delete?');" method="post" action="/contacts/<%= @contact.id %>/phone_numbers/<%= phone_number.id %>/destroy">
+			<p><%= phone_number.number_type %>: <%= phone_number.number %> <a href="/contacts/<%= @contact.id %>/phone_numbers/<%= phone_number.id %>/edit"><button type="button" class="btn btn-default">Edit</button></a> 
+    	<input type="hidden" name="_method" value="delete">
+    	<button class="btn btn-default" type="submit">Delete</button>
+		</form></p>
 	<% end %>
 </div>

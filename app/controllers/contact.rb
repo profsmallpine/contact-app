@@ -10,7 +10,7 @@ get '/contacts/:id/edit' do
 	erb :'contacts/edit'
 end
 
-get '/contacts/:id/destroy' do
+delete '/contacts/:id/destroy' do
 	contact = Contact.find_by_id(params[:id])
 	Relationship.destroy_self_and_relationships(contact)
 

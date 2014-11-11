@@ -2,6 +2,10 @@
 	<h3 class="strong-body">Relationships <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= @contact.id %>/relationships/new">Add</a></span></h3>
 	<% @contact.relationships.each do |relationship| %>
 		<% contact = Contact.find(relationship.contact2) %>
-		<p> <%= contact.first_name %> <%= contact.last_name %> (<%= relationship.relationship_type %>) - <a href="/contacts/<%= @contact.id %>/relationships/<%= relationship.id %>/edit">Edit</a> | <a href="/contacts/<%= @contact.id %>/relationships/<%= relationship.id %>/destroy">Delete</a></p>
+		<form class="inline-form" onsubmit="return confirm('Are you sure you want to delete?');" method="post" action="/contacts/<%= @contact.id %>/relationships/<%= relationship.id %>/destroy">
+			<p> <%= contact.first_name %> <%= contact.last_name %> (<%= relationship.relationship_type %>) <a href="/contacts/<%= @contact.id %>/relationships/<%= relationship.id %>/edit"><button type="button" class="btn btn-default">Edit</button></a>
+ 			<input type="hidden" name="_method" value="delete">
+  		<button class="btn btn-default" type="submit">Delete</button>
+		</form></p>
 	<% end %>
 </div>

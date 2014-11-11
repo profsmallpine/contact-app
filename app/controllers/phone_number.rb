@@ -11,7 +11,7 @@ get '/contacts/:contact_id/phone_numbers/:id/edit' do
 	erb :'phone_numbers/edit'
 end
 
-get '/contacts/:contact_id/phone_numbers/:id/destroy' do
+delete '/contacts/:contact_id/phone_numbers/:id/destroy' do
 	PhoneNumber.find_by_id(params[:id]).destroy!
 
 	redirect "contacts/#{params[:contact_id]}/edit"

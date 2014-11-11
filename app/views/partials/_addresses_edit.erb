@@ -1,6 +1,10 @@
 <div class="alert alert-info" role="alert">
 	<h3 class="strong-body">Addresses <span class="label label-default"><a class="emphasis-button" href="/contacts/<%= @contact.id %>/addresses/new">Add</a></span></h3>
 	<% @contact.addresses.each do |address| %>
-		<p><%= address.address_type %>: <%= address.street %>, <%= address.city %>  <%= address.state %> - <a href="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/edit">Edit</a> | <a href="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/destroy">Delete</a></p>
+		<form class="inline-form" onsubmit="return confirm('Are you sure you want to delete?');" method="post" action="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/destroy">
+			<p><%= address.address_type %>: <%= address.street %>, <%= address.city %>  <%= address.state %> <a href="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/edit"><button type="button" class="btn btn-default">Edit</button></a>
+ 			<input type="hidden" name="_method" value="delete">
+  		<button class="btn btn-default" type="submit">Delete</button>
+		</form></p>
 	<% end %>
 </div>
