@@ -1,10 +1,21 @@
-<h1>Contact App 2.0 search</h1>
-<h6>You searched for <%= @search %></h6>
-<h3>Results</h3>
-<% if @results[0].nil? %>
-	<h4>Nothing found</h4>
-<% else %>
-	<% @results.each do |contact| %>
-		<h4><a href="/contacts/<%= contact.id %>/edit"><%= contact.first_name %> <%= contact.last_name %></a></h4>
-	<% end %>
-<% end %>
+<div class="jumbotron">
+	<h1 class="text-center">Contact App 2.0 search</h1>
+	<h1 class="text-center"><small>You searched for '<%= @search %>'</small></h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 text-center">
+				<% if @results[0].nil? %>
+					<div class="alert alert-info" role="alert">
+						<h3 class="strong-body">Nothing found</h3>
+					</div>
+				<% else %>
+					<% @results.each do |contact| %>
+						<div class="alert alert-info" role="alert">
+							<h3 class="strong-body"><a href="/contacts/<%= contact.id %>/edit"><%= contact.whole_name %></a></h3>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

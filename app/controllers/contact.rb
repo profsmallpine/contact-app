@@ -14,7 +14,7 @@ get '/contacts/:id/destroy' do
 	contact = Contact.find_by_id(params[:id])
 	Relationship.destroy_self_and_relationships(contact)
 
-	redirect "/"
+	redirect "/contacts"
 end
 
 get '/contacts/:id' do

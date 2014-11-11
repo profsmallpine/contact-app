@@ -1,15 +1,21 @@
-<h3>Edit Phone Number for <%= @contact.first_name %> <%= @contact.last_name %></h3>
-
-<% unless @errors.nil? %>
-	<% @errors[:number].each do |error| %>
-	<p><%= error %></p>
+<div class="jumbotron">
+	<h1 class="text-center"><small>Edit Phone Number for <%= @contact.whole_name %></small></h1>
+	<% unless @errors.nil? %>
+		<% @errors[:number].each do |error| %>
+			<div class="alert alert-danger" role="alert"><%= error %></div>
+		<% end %>
 	<% end %>
-<% end %>
-
-<form action="/contacts/<%= @contact.id %>/phone_numbers/<%= @phone_number.id %>/edit" method="post">
-	<input required type="text" placeholder="Number" name="phone_number[number]" value="<%= @phone_number.number %>"><br>
-	<select name="phone_number[number_type]">
-		<%= erb :'partials/_number_types_edit' %>
-	</select><br>
-	<input type="submit" value="Update">
-</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-4 text-center">
+				<form class="form-horizontal" action="/contacts/<%= @contact.id %>/phone_numbers/<%= @phone_number.id %>/edit" method="post">
+					<div class="form-group form-group-lg">
+						<input class="form-control" required type="text" placeholder="Number, ex. 555-555-5555" name="phone_number[number]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<%= @phone_number.number %>">
+					</div>
+					<%= erb :'partials/_number_types_edit' %>
+					<button type="submit" class="btn btn-primary btn-lg ">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,12 +1,25 @@
-<h3>New Address for <%= @contact.first_name %> <%= @contact.last_name %></h3>
-
-<form action="/contacts/<%= @contact.id %>/addresses/new" method="post">
-	<input required type="text" placeholder="Street" name="address[street]"><br>
-	<input required type="text" placeholder="City" name="address[city]"><br>
-	<select required name="address[state]">
-		<%= erb :'partials/_states_new' %>
-	</select><br>
-	<input required type="text" placeholder="Zip code" name="address[zip_code]" pattern="[0-9]{5}" size="5"><br>
-	<input required type="text" placeholder="Address type" name="address[address_type]"><br>
-	<input type="submit" value="Create">
-</form>
+<div class="jumbotron">
+	<h1 class="text-center"><small>New Address for <%= @contact.whole_name %></small></h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-4 text-center">
+				<form class="form-horizontal" action="/contacts/<%= @contact.id %>/addresses/new" method="post">
+					<div class="form-group form-group-lg">
+						<input class="form-control" required type="text" placeholder="Street" name="address[street]">
+					</div>
+					<div class="form-group form-group-lg">
+						<input class="form-control" required type="text" placeholder="City" name="address[city]">
+					</div>
+					<%= erb :'partials/_states_new' %>
+					<div class="form-group form-group-lg">
+						<input class="form-control" required type="text" placeholder="Zip code" name="address[zip_code]" pattern="[0-9]{5}" size="5">
+					</div>
+					<div class="form-group form-group-lg">
+						<input class="form-control" required type="text" placeholder="Address type" name="address[address_type]">
+					</div>
+					<button type="submit" class="btn btn-primary btn-lg ">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

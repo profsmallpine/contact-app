@@ -1,6 +1,11 @@
-<option <%= "selected" if @phone_number.number_type == "Mobile" %> value="Mobile">Mobile</option>
-<option <%= "selected" if @phone_number.number_type == "Work" %> value="Work">Work</option>
-<option <%= "selected" if @phone_number.number_type == "Home" %> value="Home">Home</option>
-<option <%= "selected" if @phone_number.number_type == "Main" %> value="Main">Main</option>
-<option <%= "selected" if @phone_number.number_type == "Work Fax" %> value="Work Fax">Work Fax</option>
-<option <%= "selected" if @phone_number.number_type == "Home Fax" %> value="Home Fax">Home Fax</option>
+<div class="input-group form-group-lg">
+	<span class="input-group-addon">Number type</span>
+	<select class="form-control" name="phone_number[number_type]">
+		<option <%= "selected" if @phone_number.number_type == "Mobile" %> value="Mobile">Mobile</option>
+		<option <%= "selected" if @phone_number.number_type == "Work" %> value="Work">Work</option>
+		<option <%= "selected" if @phone_number.number_type == "Home" %> value="Home">Home</option>
+		<option <%= "selected" if @phone_number.number_type == "Main" %> value="Main">Main</option>
+		<option <%= "selected" if @phone_number.number_type == "Work Fax" %> value="Work Fax">Work Fax</option>
+		<option <%= "selected" if @phone_number.number_type == "Home Fax" %> value="Home Fax">Home Fax</option>
+	</select>
+</div><br>
